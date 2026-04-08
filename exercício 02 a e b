@@ -1,0 +1,51 @@
+using System;
+
+namespace AulaStrings
+{
+    class Program
+    {
+        static void Main()
+        {
+              Parte A: Manipulação de Frase
+            Console.WriteLine("Digite uma frase com espaços e virgulas:");
+            string texto = Console.ReadLine();
+
+            string limpo = texto.Trim();
+            Console.WriteLine("Sem espaços: " + limpo);
+
+            string[] partes = limpo.Split(',');
+            foreach (string p in partes)
+            {
+                Console.WriteLine("Parte: " + p.Trim());
+            }
+
+            string trocado = limpo.Replace("ruim", "bom");
+            Console.WriteLine("Trocado: " + trocado);
+
+            Console.WriteLine("Começa com A? " + limpo.StartsWith("A"));
+            Console.WriteLine("Termina com .? " + limpo.EndsWith("."));
+
+
+
+             Parte B: Formatador de CPF
+            Console.WriteLine("\nDigite seu CPF:");
+            string cpfInput = Console.ReadLine();
+            string cpfLimpo = cpfInput.Replace(".", "").Replace("-", "").Replace(" ", "").Trim();
+
+            if (cpfLimpo.Length == 11)
+            {
+                string formatado = cpfLimpo.Substring(0, 3) + "." + 
+                                  cpfLimpo.Substring(3, 3) + "." + 
+                                  cpfLimpo.Substring(6, 3) + "-" + 
+                                  cpfLimpo.Substring(9, 2);
+                Console.WriteLine("CPF Formatado: " + formatado);
+            }
+            else
+            {
+                Console.WriteLine("CPF invalido");
+            }
+
+            Console.ReadLine();
+        }
+    }
+}

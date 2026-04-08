@@ -1,0 +1,43 @@
+using System;
+
+namespace SistemaEventos
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Nome do Evento:");
+            string nomeEvento = Console.ReadLine();
+
+            Console.WriteLine("Data do Evento (dd/MM/yyyy):");
+            string dataTexto = Console.ReadLine();
+            DateTime dataEvento = DateTime.Parse(dataTexto);
+
+            Console.WriteLine("Valor do Ingresso:");
+            double valorBase = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Categoria (VIP ou Comum):");
+            string categoriaInput = Console.ReadLine();
+
+            string categoriaFinal = "Comum";
+            double valorFinal = valorBase;
+
+            if (categoriaInput.ToUpper().Contains("VIP"))
+            {
+                categoriaFinal = "VIP";
+                valorFinal = Math.Round(valorBase * 1.20, 2); 
+            }
+            else
+            {
+                valorFinal = Math.Round(valorBase, 2);
+            }
+
+            TimeSpan diferenca = dataEvento - DateTime.Now;
+            int diasRestantes = diferenca.Days;
+
+            Console.WriteLine("\n================ INGRESSO ================");
+            
+            Console.WriteLine(string.Format("{0,-15} {1,20}", "Evento:", nomeEvento));
+            Console.WriteLine(string.Format("{0,-15} {1,20:dd/MM/yyyy}", "Data:", dataEvento));
+            Console.WriteLine(string.Format("{0,-15} {1,20}", "Categoria:", categoriaFinal));
+            Console.WriteLine(string.Format("{0

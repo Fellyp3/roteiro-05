@@ -1,0 +1,45 @@
+using System;
+
+namespace AulaPratica
+{
+    class Program
+    {
+        static void Main()
+        {
+            string n1 = "Mouse";
+            double p1 = 50.00;
+            int q1 = 2;
+
+            string n2 = "Teclado";
+            double p2 = 150.00;
+            int q2 = 1;
+
+            string n3 = "Monitor";
+            double p3 = 800.00;
+            int q3 = 1;
+
+            double t1 = p1 * q1;
+            double t2 = p2 * q2;
+            double t3 = p3 * q3;
+
+            double sub = t1 + t2 + t3;
+            double desc = sub * 0.10;
+            double total = sub - desc;
+
+            Console.WriteLine("{0,-15} {1,-10} {2,-10} {3,-10}", "Produto", "Preco", "Qtd", "Total");
+            Console.WriteLine("---------------------------------------------------------");
+
+            Console.WriteLine("{0,-15} {1,-10:C} {2,-10:N} {3,-10:C}", n1, p1, q1, t1);
+            Console.WriteLine("{0,-15} {1,-10:C} {2,-10:N} {3,-10:C}", n2, p2, q2, t2);
+            Console.WriteLine("{0,-15} {1,-10:C} {2,-10:N} {3,-10:C}", n3, p3, q3, t3);
+
+            Console.WriteLine("---------------------------------------------------------");
+
+            Console.WriteLine("Subtotal: " + sub.ToString("C"));
+            Console.WriteLine("Desconto: " + desc.ToString("C"));
+            Console.WriteLine("Total Final: " + total.ToString("C"));
+
+            Console.ReadLine();
+        }
+    }
+}
